@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+    /* Import the color variables from your existing styles.css */
+    --gray-50: #F6F6F6;
+    --gray-600: #666967;
+    --green-50: #F1FCF6;
+    --green-600: #009B60;
+    --blue-50: #F0F8FF;
+    --blue-600: #0771D2;
+    --green-900: #004D40;
+    --gray-300: #E0E0E0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.request-count {
+    font-size: 14px;
+    background-color: var(--gray-50);
+    color: var(--gray-600);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-50);
+}
+
+.requests-table th {
+    font-weight: 500;
+    color: var(--gray-600);
+    cursor: pointer;
+}
+
+.sort-icon {
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.phase-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.phase-chip .material-symbols-rounded {
+    font-size: 16px;
+}
+
+.phase-new {
+    background-color: var(--gray-50);
+    color: var(--gray-600);
+}
+
+.phase-completed {
+    background-color: var(--green-50);
+    color: var(--green-600);
+}
+
+.phase-in-progress {
+    background-color: var(--blue-50);
+    color: var(--blue-600);
+}
+
+.comment-text {
+    color: var(--gray-600);
+}
+
+.comment-author {
+    font-weight: 500;
+}
+
+/* Add these styles for the side panel */
+.layout {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    background-color: var(--gray-50);
+    min-height: calc(100vh - 108px); /* Subtract nav + program bar height */
+}
+
+.main-content {
+    flex: 1;
+    overflow: auto;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.side-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: white;
+    border-left: 1px solid var(--gray-200);
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 100;
+}
+
+.side-panel.open {
+    width: 800px;
+}
+
+.side-panel iframe {
+    width: 800px;
+    height: 100%;
+    border: none;
+}
+
+/* Add hover effect to table rows */
+.requests-table tbody tr {
+    cursor: pointer;
+}
+
+.requests-table tbody tr:hover {
+    background-color: var(--gray-50);
+}
+
+.material-symbols-rounded {
+    font-size: 18px;
+    vertical-align: middle;
+    color: var(--gray-600);
+}
+
+th .material-symbols-rounded {
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+th.sorted-asc .material-symbols-rounded {
+    transform: rotate(180deg);
+}
+
+.main-nav {
+    background-color: var(--green-900);
+    color: white;
+    padding: 12px 0;
+}
+
+.nav-content {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: var(--gray-300);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-300);
+}
+
+.nav-logo .material-symbols-rounded,
+.nav-user .material-symbols-rounded {
+    color: white;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gray-600);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+}
+
+.modal-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.cancel-btn {
+    padding: 8px 16px;
+    border: none;
+    background: var(--gray-50);
+    color: var(--gray-600);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-btn {
+    padding: 8px 16px;
+    border: none;
+    background: var(--green-600);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Institution search styles */
+.institution-search {
+    position: relative;
+}
+
+.search-indicator {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--gray-600);
+}
+
+.institution-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.institution-result-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.institution-result-item:hover {
+    background-color: var(--gray-50);
+}
+
+/* Program bar */
+.program-bar {
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid var(--gray-200);
+    position: relative;
+    z-index: 1;
+}
+
+.program-content {
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+.program-content h1 {
+    color: var(--gray-900);
+    margin: 0;
+}
+
+/* Program bar layout */
+.program-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.program-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Button system */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.button .material-symbols-rounded {
+    font-size: 20px;
+}
+
+/* Primary button style */
+.button-primary {
+    background-color: var(--green-600);
+    color: white;
+    border-color: var(--green-600);
+}
+
+.button-primary:hover {
+    background-color: var(--green-700);
+    border-color: var(--green-700);
+    color: white;
+}
+
+.button-primary:active {
+    background-color: var(--green-800);
+    border-color: var(--green-800);
+    color: white;
+}
+
+.button-primary .material-symbols-rounded {
+    color: white;
+}
+
+/* Ensure icon stays white on hover/active */
+.button-primary:hover .material-symbols-rounded,
+.button-primary:active .material-symbols-rounded {
+    color: white;
+}
+
+/* Secondary (outlined) button style */
+.button-secondary {
+    background-color: transparent;
+    border-color: var(--gray-200);
+    color: var(--gray-700);
+    padding: 8px;
+}
+
+.button-secondary:hover {
+    background-color: var(--gray-50);
+    border-color: var(--gray-300);
+    color: var(--gray-900);
+}
+
+.button-secondary:active {
+    background-color: var(--gray-100);
+    border-color: var(--gray-300);
+    color: var(--gray-900);
+}
+
+.button-secondary .material-symbols-rounded {
+    color: var(--gray-600);
+}
+
+.button-secondary:hover .material-symbols-rounded {
+    color: var(--gray-900);
+}
+
+/* Layout */
+.layout {
+    margin: 0 auto;
+    padding: 24px;
+} 

@@ -1,0 +1,214 @@
+.settings-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.settings-section h2 {
+    color: var(--gray-900);
+    font-size: var(--h3-desktop);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+/* Form controls */
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+/* Categories */
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background-color: var(--gray-50);
+    border-radius: 6px;
+}
+
+.category-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.category-item span {
+    flex: 1;
+}
+
+/* Team table */
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+.team-table th,
+.team-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.team-table th {
+    font-weight: 500;
+    color: var(--gray-600);
+}
+
+/* Make secondary buttons more compact in tables and lists */
+.category-item .button-secondary,
+.team-table .button-secondary {
+    padding: 4px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content h1 {
+    margin: 0;
+}
+
+.close-settings-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.close-settings-btn:hover {
+    background-color: var(--gray-100);
+}
+
+.close-settings-btn .material-symbols-rounded {
+    font-size: 24px;
+}
+
+.settings-description {
+    color: var(--gray-600);
+    margin-bottom: 16px;
+}
+
+.workflow-template {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.phases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.phase-container {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.phase-header .drag-handle {
+    color: var(--gray-400);
+    cursor: move;
+}
+
+.phase-header input {
+    flex: 1;
+    border: 1px solid transparent;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: var(--subtitle1);
+    font-weight: 500;
+}
+
+.phase-header input:hover {
+    border-color: var(--gray-200);
+}
+
+.phase-header input:focus {
+    border-color: var(--gray-300);
+    outline: none;
+}
+
+.milestones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 24px;
+}
+
+.milestone-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background: var(--gray-50);
+    border-radius: 6px;
+}
+
+.milestone-item .drag-handle {
+    color: var(--gray-400);
+    cursor: move;
+}
+
+.milestone-item input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.milestone-item input:focus {
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 2px var(--gray-200);
+}
+
+.delete-btn {
+    color: var(--gray-400);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    color: var(--red-600);
+    background: var(--red-50);
+} 
